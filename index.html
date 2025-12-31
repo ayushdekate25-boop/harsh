@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>For You 💖</title>
+    <style>
+        body {
+    margin: 0;
+    background: #fffaf7;
+    font-family: 'Arial', sans-serif;
+    text-align: center;
+}
+
+.container {
+    width: 100%;
+    max-width: 400px;
+    margin: auto;
+    padding-top: 40px;
+}
+
+.screen {
+    display: none;
+}
+
+.screen.active {
+    display: block;
+}
+
+.cat {
+    width: 180px;
+    margin-bottom: 20px;
+}
+
+.gift {
+    cursor: pointer;
+    transition: transform 0.3s;
+}
+
+.gift:hover {
+    transform: scale(1.1);
+}
+
+.memory {
+    width: 250px;
+    border-radius: 10px;
+}
+
+p {
+    font-size: 18px;
+    color: #444;
+}
+
+.buttons {
+    margin-top: 20px;
+}
+
+button {
+    background: white;
+    border: 2px solid #d4a373;
+    border-radius: 20px;
+    padding: 10px 25px;
+    margin: 10px;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+button:hover {
+    background: #ffe8cc;
+}
+
+.wish {
+    font-size: 17px;
+    margin-top: 20px;
+}
+
+    </style>
+</head>
+<body>
+
+<div class="container">
+
+    <!-- SCREEN 1 -->
+    <div class="screen active" id="screen1">
+        <img src="images/cat1.png" class="cat">
+        <p>hey! i made something for you<br>will you see it?</p>
+        <div class="buttons">
+            <button onclick="yes()">yes</button>
+            <button onclick="no()">no</button>
+        </div>
+    </div>
+
+    <!-- SCREEN 2 (NO clicked) -->
+    <div class="screen" id="screen2">
+        <img src="images/cat-angry.png" class="cat">
+        <h2>HOW DARE YOU!! 😾</h2>
+        <button onclick="back()">BACK</button>
+    </div>
+
+    <!-- SCREEN 3 -->
+    <div class="screen" id="screen3">
+        <img src="images/cat-shy.png" class="cat">
+        <p>hehe!<br>click below for the surprise!!</p>
+        <button onclick="next()">NEXT</button>
+    </div>
+
+    <!-- SCREEN 4 -->
+    <div class="screen" id="screen4">
+        <img src="images/cat-gift.png" class="cat gift" onclick="next2()">
+        <p><b>Happy New Year 💫</b><br>Click on the gift 🎁</p>
+    </div>
+
+    <!-- SCREEN 5 -->
+    <div class="screen" id="screen5">
+        <img src="images/memories.png" class="memory">
+        <p class="wish">
+            for 2026, i wish you:<br><br>
+            ✨ peace<br>
+            😂 lots of laughter<br>
+            😴 good sleep<br>
+            🌟 main-character energy
+        </p>
+    </div>
+
+</div>
+
+<script>
+    function show(id) {
+    document.querySelectorAll('.screen').forEach(s => s.classList.remove('active'));
+    document.getElementById(id).classList.add('active');
+}
+
+function yes() {
+    show('screen3');
+}
+
+function no() {
+    show('screen2');
+}
+
+function back() {
+    show('screen1');
+}
+
+function next() {
+    show('screen4');
+}
+
+function next2() {
+    show('screen5');
+}
+
+</script>
+</body>
+</html>
